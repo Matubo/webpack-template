@@ -1,0 +1,8 @@
+$hoverColor: red;
+
+.Jopa {
+  background-color: green;
+  .Hellow:hover {
+    background-color: $hoverColor;
+  }
+}
