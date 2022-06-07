@@ -1,8 +1,9 @@
 const { merge } = require('webpack-merge');
-const common = requier('./webpack.common');
+const common = require('./webpack.common');
 
-module.exports = (env, argv) => {
+module.exports = function (env, argv) {
   const commonConf = common(env, argv);
+
   const extendedConf = {
     mode: 'development',
     devtool: 'eval-cheap-module-source-map'

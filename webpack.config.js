@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -11,11 +10,6 @@ const destPath = path.resolve(__dirname, './build/');
 const assetsPath = './public';
 
 module.exports = function (env, argv) {
-  const isDevServer = env.WEBPACK_SERVE;
-  const mode = argv.mode || (isDevServer ? 'development' : 'production');
-  const isDevMode = mode !== 'production';
-
-  process.env.NODE_ENV = mode;
   const result = {
     stats: {
       children: false, // disable console.info for node_modules/*
@@ -39,6 +33,21 @@ module.exports = function (env, argv) {
     module: {
       rules: [
         {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.css$/i,
+          exclude: /node_modules/,
+          use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          exclude: /node_modules/,
+          use: ['style-loader', 'css-loader', 'postcss-loader']
+        },
+        {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: [
@@ -46,35 +55,10 @@ module.exports = function (env, argv) {
             // optional: "ifdef-loader" // prodives conditinal compilation: https://github.com/nippur72/ifdef-loader
             'eslint-loader'
           ]
-        },
-        {
-          test: /\.tsx?$/,
-          use: 'ts-loader',
-          exclude: /node_modules/
-        },
-        {
-          test: /\.css$/,
-          exclude: /node_modules/,
-          use: ['style-loader', 'css-loader', 'postcss-loader']
-        },
-        {
-          test: /\.s[ac]ss$/i,
-          exclude: /node_modules/,
-          use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
         }
       ]
     },
     plugins: [
-      new webpack.DefinePlugin({
-        // it adds custom Global definition to the project like BASE_URL for index.html
-        'process.env': {
-          NODE_ENV: JSON.stringify(mode),
-          BASE_URL: '"/"'
-        },
-        'global.DEV': JSON.stringify(isDevMode),
-        'global.DEBUG': JSON.stringify(false),
-        'global.VERBOSE': JSON.stringify(false)
-      }),
       new FriendlyErrorsWebpackPlugin(),
       new HtmlWebpackPlugin({
         filename: 'index.html',
@@ -86,5 +70,3 @@ module.exports = function (env, argv) {
   };
   return result;
 };
-
-module.exports.assetsPath = assetsPath;
