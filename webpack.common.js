@@ -9,6 +9,7 @@ const path = require('path');
 const srcPath = path.resolve(__dirname, './src/');
 const destPath = path.resolve(__dirname, './build/');
 const assetsPath = './public';
+const filesThreshold = 8196;
 
 module.exports = function (env, argv) {
   const isDevServer = env.WEBPACK_SERVE;
@@ -41,15 +42,11 @@ module.exports = function (env, argv) {
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: [
-            'babel-loader', // transpile *.js, *.jsx, *.ts, *.tsx to result according to .browserlistrc and babel.config.js files
-            // optional: "ifdef-loader" // prodives conditinal compilation: https://github.com/nippur72/ifdef-loader
-            'eslint-loader'
-          ]
+          use: ['babel-loader']
         },
         {
           test: /\.tsx?$/,
-          use: 'ts-loader',
+          use: ['ts-loader', 'babel-loader'],
           exclude: /node_modules/
         },
         {
@@ -88,3 +85,4 @@ module.exports = function (env, argv) {
 };
 
 module.exports.assetsPath = assetsPath;
+module.exports.filesThreshold = filesThreshold;

@@ -1,13 +1,14 @@
 {
+  "extensions": ["js", "ts", "jsx", "tsx"],
   "root": true,
-  "parser": ["@typescript-eslint/parser", "prettier"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -15,7 +16,6 @@
     "prettier"
   ],
   "rules": {
-    "no-console": "error", // Remember, this means error!
-    "prettier/prettier": 2
+    "no-console": "error" // Remember, this means error!
   }
 }

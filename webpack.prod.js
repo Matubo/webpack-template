@@ -23,18 +23,15 @@ module.exports = (env, argv) => {
     optimization: {
       minimizer: [
         new TerserPlugin({
-          // default webpack plugin for js-optimization which should be configured: https://v4.webpack.js.org/configuration/optimization/#optimizationminimizer
-          // speedest alternative of UglifyJS (it improves minifying js files)
           test: /\.m?js(\?.*)?$/i,
-          // exclude: /\.m?js(\?.*)?$/i, // uncomment if we don't need uglifying (for debug purpose)
-          extractComments: false, // disable extracting comments to a different file
+          extractComments: false,
           terserOptions: {
             toplevel: true, // https://github.com/terser/terser#minify-options
             output: {
-              comments: false // remove comments from files
+              comments: false
             },
             mangle: {
-              safari10: true // for preventing Safari 10/11 bugs in loop scoping and await
+              safari10: true
             },
             compress: { pure_funcs: ['console.info', 'console.debug', 'console.warn'] } // remove this functions when their return values are not used
           }
