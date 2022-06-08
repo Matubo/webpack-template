@@ -3,9 +3,9 @@ import Apps from './Apps';
 import './index.css';
 
 export default function App() {
-  console.log('hellow');
-  console.log('hellow');
-  console.log('hellow');
+  console.log('jopa');
+  console.log('jopa');
+  console.log('jopa');
   return (
     <div className={style.Jopa}>
       <p className={style.Hellow}>Hellow</p>

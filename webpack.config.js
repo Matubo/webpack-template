@@ -34,7 +34,15 @@ module.exports = function (env, argv) {
       rules: [
         {
           test: /\.tsx?$/,
-          use: 'ts-loader',
+          use: [
+            'babel-loader',
+            {
+              loader: 'ts-loader',
+              options: {
+                transpileOnly: true
+              }
+            }
+          ],
           exclude: /node_modules/
         },
         {

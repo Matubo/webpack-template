@@ -46,7 +46,7 @@ module.exports = function (env, argv) {
         },
         {
           test: /\.tsx?$/,
-          use: ['ts-loader', 'babel-loader'],
+          use: ['babel-loader', 'ts-loader'],
           exclude: /node_modules/
         },
         {
@@ -57,7 +57,7 @@ module.exports = function (env, argv) {
         {
           test: /\.s[ac]ss$/i,
           exclude: /node_modules/,
-          use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+          use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
         }
       ]
     },
@@ -78,7 +78,9 @@ module.exports = function (env, argv) {
         template: './src/index.html'
       }),
       new StylelintPlugin(),
-      new ESLintPlugin()
+      new ESLintPlugin({
+        extensions: ['ts', 'tsx', 'js', 'jsx']
+      })
     ]
   };
   return result;

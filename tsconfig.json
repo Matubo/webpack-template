@@ -12,6 +12,7 @@
     "paths": {
       "App": ["src/App"]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "allowUmdGlobalAccess": true
   }
 }

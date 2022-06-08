@@ -1,12 +1,15 @@
 {
-  "extensions": ["js", "ts", "jsx", "tsx"],
   "root": true,
-  "parser": "@typescript-eslint/parser",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
+  },
+  "env": {
+    "browser": true,
+    "node": true
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
@@ -16,6 +19,6 @@
     "prettier"
   ],
   "rules": {
-    "no-console": "error" // Remember, this means error!
+    /* "no-console": "error" // Remember, this means error! */
   }
 }

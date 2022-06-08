@@ -1,8 +1,8 @@
 module.exports = {
   presets: [
-    '@babel/preset-react', // optional: react: this resolves react-files (jsx, tsx)
-    '@babel/preset-typescript', // allows  to use TypeScript
-    '@babel/preset-env' // compiles your js according with .browserslistrc
+    '@babel/preset-env',
+    ['@babel/preset-react', { runtime: 'automatic' }], // optional: react: this resolves react-files (jsx, tsx)
+    '@babel/preset-typescript' // allows  to use TypeScriptc
   ],
   plugins: [
     '@babel/plugin-proposal-class-properties', // transforms static class properties as well as properties declared with the property initializer syntax
