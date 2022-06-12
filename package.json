@@ -5,13 +5,13 @@
   "main": "index.tsx",
   "scripts": {
     "watch": "webpack --watch",
-    "start2": "webpack serve --open",
-    "start": "npm run serve",
+    "start": "webpack serve",
     "serve": "webpack serve --open --config webpack.devServer.js",
     "build": "webpack",
     "build-prod": "./node_modules/.bin/webpack --mode production --config webpack.prod.js",
     "lint": "eslint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pre-commit": "npm run test --watchAll=false",
+    "test": "jest"
   },
   "author": "Matthew",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "autoprefixer": "^10.4.7",
+    "babel-jest": "^28.1.1",
     "babel-loader": "^8.2.5",
     "babel-plugin-jsx-classnames-advanced": "^1.0.2",
     "compression-webpack-plugin": "^10.0.0",
@@ -36,6 +37,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-webpack-plugin": "^3.1.1",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.1",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "postcss": "^8.4.14",
     "postcss-autoreset": "^3.0.4",
@@ -47,6 +51,7 @@
     "prettier-eslint-cli": "^6.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-test-renderer": "^18.1.0",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",
     "style-loader": "^3.3.1",
@@ -63,7 +68,6 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^5.5.0",
     "postcss-mixins": "^9.0.2",
     "postcss-simple-vars": "^6.0.3",
