@@ -5,7 +5,7 @@
   "main": "index.tsx",
   "scripts": {
     "watch": "webpack --watch",
-    "start": "webpack serve",
+    "start": "npm run serve",
     "serve": "webpack serve --open --config webpack.devServer.js",
     "build": "webpack",
     "build-prod": "./node_modules/.bin/webpack --mode production --config webpack.prod.js",

@@ -25,8 +25,6 @@ module.exports = function (env, argv) {
       errorDetails: true
     },
     entry: path.resolve(srcPath, 'index.tsx'),
-    /*  devtool: 'inline-source-map', */
-    /*     mode: 'development', */
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.css', '.scss'],
       plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })]
