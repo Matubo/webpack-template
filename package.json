@@ -14,7 +14,7 @@
     "pre-commit": "npm run test",
     "prepare": "husky install",
     "test": "jest",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged -q"
   },
   "author": "Matthew",
   "license": "ISC",

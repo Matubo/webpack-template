@@ -6,6 +6,12 @@ export default function App() {
   console.log('jopa');
   console.log('jopa');
   console.log('jopa');
+  console.log('jopa');
+  console.log('jopa');
+  console.log('jopa');
+
+  console.log('jopa');
+  console.log('jopa');
   return (
     <div className={style.Jopa}>
       <p className={style.Hellow}>Hellow</p>
