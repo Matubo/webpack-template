@@ -9,10 +9,12 @@
     "serve": "webpack serve --open --config webpack.devServer.js",
     "build": "webpack",
     "build-prod": "./node_modules/.bin/webpack --mode production --config webpack.prod.js",
-    "lint": "eslint",
+    "lint": "eslint .",
+    "prettier-write": "prettier -w .",
     "pre-commit": "npm run test",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "lint-staged": "lint-staged"
   },
   "author": "Matthew",
   "license": "ISC",
@@ -41,6 +43,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "husky": "^8.0.0",
     "jest": "^28.1.1",
+    "lint-staged": "^13.0.2",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "postcss": "^8.4.14",
     "postcss-autoreset": "^3.0.4",

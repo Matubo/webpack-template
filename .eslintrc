@@ -9,8 +9,10 @@
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
+  "ignorePatterns": ["*.json"],
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "eslint:recommended",
