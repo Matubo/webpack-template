@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+FORCE_COLOR=0 npm run lint-staged
 npm test
-npx lint-staged
