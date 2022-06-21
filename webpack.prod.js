@@ -13,7 +13,8 @@ module.exports = (env, argv) => {
     devtool: argv.sourceMap != null ? 'source-map' : false, // option controls how source maps are generated (affects on build speed dramatically): https://v4.webpack.js.org/configuration/devtool/
     output: {
       filename: '[name].[contenthash:8].js', // contenthash-this is version for avoding browser-cache issue: user always has to get the last version of files
-      chunkFilename: '[name].[contenthash:8].js'
+      chunkFilename: '[name].[contenthash:8].js',
+      clean: true //dell \build files
     },
     performance: {
       assetFilter: function assetFilter(assetFilename) {
