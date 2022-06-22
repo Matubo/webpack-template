@@ -13,7 +13,7 @@
     "jest": true
   },
   "ignorePatterns": ["*.json"],
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint", "jest", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -25,5 +25,10 @@
   "rules": {
     "react/react-in-jsx-scope": "off" //this shieeeeeet.......
     /* "no-console": "error" // Remember, this means error! */
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
