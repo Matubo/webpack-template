@@ -73,9 +73,15 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
     "html-webpack-plugin": "^5.5.0",
+    "mocker-api": "^2.9.5",
     "postcss-mixins": "^9.0.2",
     "postcss-simple-vars": "^6.0.3",
+    "react-redux": "^8.0.2",
+    "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "stylelint-config-standard": "^25.0.0",
     "webpack-dev-server": "^4.9.0"

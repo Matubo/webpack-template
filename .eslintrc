@@ -19,12 +19,13 @@
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
+    /*"plugin:@typescript-eslint/recommended", */
     "prettier"
   ],
   "rules": {
-    "react/react-in-jsx-scope": "off" //this shieeeeeet.......
-    /* "no-console": "error" // Remember, this means error! */
+    "react/react-in-jsx-scope": "off", //this shieeeeeet.......
+    "no-unused-vars": "warn",
+    "no-console": "warn" // Remember, this means error!
   },
   "settings": {
     "react": {

@@ -57,6 +57,10 @@ module.exports = function (env, argv) {
             { loader: 'sass-loader' },
             { loader: 'postcss-loader' }
           ]
+        },
+        {
+          test: /\.(png|jpeg|jpg|gif|jp2|webp)$/,
+          type: 'asset/resource'
         }
       ]
     },
