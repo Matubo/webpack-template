@@ -7,8 +7,8 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
-const srcPath = path.resolve(__dirname, './src/');
-const destPath = path.resolve(__dirname, './build/');
+const srcPath = path.resolve(__dirname, 'src/');
+const destPath = path.resolve(__dirname, 'build/');
 const assetsPath = './public';
 const filesThreshold = 8196;
 
