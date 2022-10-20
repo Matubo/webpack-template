@@ -2,13 +2,13 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const path = require('path');
 
-const srcPath = path.resolve(__dirname, 'src/');
-const destPath = path.resolve(__dirname, 'build/');
+const srcPath = path.resolve(__dirname, './src/');
+const destPath = path.resolve(__dirname, './build/');
 const assetsPath = './public';
 const filesThreshold = 8196;
 
@@ -49,20 +49,23 @@ module.exports = function (env, argv) {
           exclude: /node_modules/
         },
         {
-          test: /\.css$|\.scss$/,
+          test: /\.css$/,
           exclude: /node_modules/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            { loader: 'css-loader' },
-            { loader: 'sass-loader' },
-            { loader: 'postcss-loader' }
-          ]
+          use: [MiniCssExtractPlugin.loader, { loader: 'css-loader' }, { loader: 'postcss-loader' }]
+        },
+        {
+          test: /\.scss$/,
+          exclude: /node_modules/,
+          use: [MiniCssExtractPlugin.loader, { loader: 'css-loader' }, { loader: 'sass-loader' }]
         },
         {
           test: /\.(png|jpeg|jpg|gif|jp2|webp)$/,
           type: 'asset/resource'
         }
       ]
+    },
+    optimization: {
+      minimizer: [new CssMinimizerPlugin()]
     },
     plugins: [
       new webpack.DefinePlugin({
@@ -75,7 +78,6 @@ module.exports = function (env, argv) {
         'global.DEBUG': JSON.stringify(false),
         'global.VERBOSE': JSON.stringify(false)
       }),
-      new FriendlyErrorsWebpackPlugin(),
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: './src/index.html'
