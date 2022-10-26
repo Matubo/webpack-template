@@ -2,4 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 FORCE_COLOR=0 npm run lint-staged
+git add .
 npm test
