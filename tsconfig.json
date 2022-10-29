@@ -11,9 +11,16 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "App": ["src/App"]
+      "src": ["src/"],
     },
     "allowSyntheticDefaultImports": true,
     "allowUmdGlobalAccess": true
-  }
+  },
+  "include": [
+    "./jest-setup.js",
+    "./declaration.d.ts",
+    "src/**/*",
+    "tests/**/*"
+  ],
+  "exclude": ["node_modules"]
 }
