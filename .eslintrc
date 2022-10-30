@@ -13,19 +13,21 @@
     "jest": true
   },
   "ignorePatterns": ["*.json"],
-  "plugins": ["@typescript-eslint", "jest", "prettier"],
+  "plugins": ["@typescript-eslint", "jsx-a11y", "jest", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/eslint-recommended",
-    /*"plugin:@typescript-eslint/recommended", */
+    "plugin:jsx-a11y/recommended",
     "prettier"
   ],
   "rules": {
-    "react/react-in-jsx-scope": "off", //this shieeeeeet.......
+    //"react/react-in-jsx-scope": "off", //this shieeeeeet.......
     "no-unused-vars": "warn",
-    "no-console": "warn" // Remember, this means error!
+    "no-console": "warn", // Remember, this means error!
+    "react/no-unescaped-entities": ["warn"],
+    "no-var": "error"
   },
   "settings": {
     "react": {

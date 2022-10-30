@@ -1,23 +1,18 @@
 {
-  /* "css.validate": false, */
-  "prettier.eslintIntegration": true,
-  "prettier.stylelintIntegration": true,
-  "eslint.autoFixOnSave": false,
-  "stylelint.enable": true
-  /*   "css.validate": false,
-  "emmet.includeLanguages": {
-    "postcss": "css"
-  },
-  "emmet.syntaxProfiles": {
-    "postcss": "css"
-  },
-  "files.associations": {
-    "*.postcss": "css"
-  } */
-  /* ,
-   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.wordSeparators": "`~!%^&*()=+[{]}\\|;:'\",.<>/?$" // ability to select '#fff', 'font-family', '--cssVariable' at once
-  }  */
-}
+    /* "css.validate": false, */
+    "prettier.eslintIntegration": true,
+    "prettier.stylelintIntegration": true,
+    "eslint.autoFixOnSave": false,
+    "stylelint.enable": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+        "html",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact"
+    ],
+  }
+  
